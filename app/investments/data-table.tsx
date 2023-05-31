@@ -72,7 +72,7 @@ export function DataTable<TData, TValue>({
       <div className="flex items-center">
         <Link href="/">
           <Button className="bg-color-white">
-            <MoveLeft className="mr-2" /> Voltar
+            <MoveLeft className="mr-2" />
           </Button>
         </Link>
       </div>

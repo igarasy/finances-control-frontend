@@ -32,7 +32,7 @@ export default async function UserPage({ params: { investmentId } }: Params) {
       <div className="flex items-center">
         <Link href="./investments">
           <Button className="bg-color-white">
-            <MoveLeft className="mr-2" /> Voltar
+            <MoveLeft className="mr-2" />
           </Button>
         </Link>
       </div>

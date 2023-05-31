@@ -35,7 +35,7 @@ export function AddInvestment() {
       <div className="flex items-center">
         <Button className="bg-color-white">
           <Link href="/investments">
-            <MoveLeft className="mr-2" /> Voltar
+            <MoveLeft className="mr-2" />
           </Link>
         </Button>
       </div>
