@@ -3,7 +3,7 @@ export default async function getInvestment(investmentId: string) {
     `http://localhost:3000/api/v1/investments/${investmentId}`,
   )
 
-  if (!res.ok) throw new Error('Failed to fetch user')
+  if (!res.ok) throw new Error('Failed to fetch investment')
 
   return res.json()
 }

@@ -7,7 +7,7 @@ export default async function createInvestment(investment: CreateInvestment) {
     body: JSON.stringify(investment),
   })
 
-  if (!res.ok) throw new Error('Failed to fetch user')
+  if (!res.ok) throw new Error('Failed to create new investment')
 
   return res.json()
 }

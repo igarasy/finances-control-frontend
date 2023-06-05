@@ -7,7 +7,7 @@ export default async function createProfit(profit: CreateProfit) {
     body: JSON.stringify(profit),
   })
 
-  if (!res.ok) throw new Error('Failed to fetch user')
+  if (!res.ok) throw new Error('Failed to create profit')
 
   return res.json()
 }
