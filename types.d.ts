@@ -7,15 +7,37 @@ type Investment = {
   deletedAt: string
 }
 
+type Expense = {
+  id: string
+  expense: string
+  value: 0
+  createdAt: string
+  updatedAt: string
+  deletedAt: string
+}
+
+type Profit = {
+  id: string
+  profit: string
+  value: 0
+  createdAt: string
+  updatedAt: string
+  deletedAt: string
+}
+
 type Payment = {
   id: string
   amount: number
-  status: "pending" | "processing" | "success" | "failed"
+  status: 'pending' | 'processing' | 'success' | 'failed'
   email: string
 }
 
 type CreateInvestment = {
   investment: string
+  value: number
+}
+type CreateProfit = {
+  profit: string
   value: number
 }
 

@@ -70,21 +70,21 @@ export function DataTable<TData, TValue>({
           </Button>
         </Link>
       </div>
-      <p className="flex items-center justify-center text-7xl">Investimentos</p>
+      <p className="flex items-center justify-center text-7xl">Ganhos</p>
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filtrar investimentos..."
+          placeholder="Filtrar ganhos..."
           value={
-            (table.getColumn('investment')?.getFilterValue() as string) ?? ''
+            (table.getColumn('profit')?.getFilterValue() as string) ?? ''
           }
           onChange={(event) =>
-            table.getColumn('investment')?.setFilterValue(event.target.value)
+            table.getColumn('profit')?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
 
         <Button className="ml-auto bg-slate-700 hover:bg-slate-600">
-          <Link href={'investments/create'}>Criar investimento</Link>
+          <Link href={'investments/create'}>Adicionar ganho</Link>
         </Button>
 
         {/*   <DropdownMenu>

@@ -17,7 +17,7 @@ import {
 import moment from 'moment'
 import Link from 'next/link'
 
-export const columns: ColumnDef<Investment>[] = [
+export const columns: ColumnDef<Profit>[] = [
   {
     id: 'select',
     header: ({ table }) => (
@@ -39,14 +39,14 @@ export const columns: ColumnDef<Investment>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: 'investment',
+    accessorKey: 'profit',
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
-          Investimento
+          Ganho
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -66,7 +66,7 @@ export const columns: ColumnDef<Investment>[] = [
   },
   {
     accessorKey: 'createdAt',
-    header: 'Data de aplicação',
+    header: 'Data de registro',
     cell: ({ row }) => {
       const date = moment(row.getValue('createdAt')).format('DD/MM/YY')
       return <div className="text-left font-medium">{date}</div>
@@ -75,7 +75,7 @@ export const columns: ColumnDef<Investment>[] = [
   {
     id: 'actions',
     cell: ({ row }) => {
-      const investment = row.original
+      const profit = row.original
 
       return (
         <DropdownMenu>
@@ -93,7 +93,7 @@ export const columns: ColumnDef<Investment>[] = [
             </DropdownMenuItem> */}
             <DropdownMenuItem>
               {' '}
-              <Link href={`investments/${investment.id}`}>Ver detalhes </Link>
+              <Link href={`profits/${profit.id}`}>Ver detalhes</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Excluir investimento</DropdownMenuItem>
