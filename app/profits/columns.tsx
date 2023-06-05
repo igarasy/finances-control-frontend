@@ -1,9 +1,6 @@
 'use client'
 
 import { ColumnDef } from '@tanstack/react-table'
-
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
 import { MoreHorizontal, ArrowUpDown } from 'lucide-react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
@@ -16,6 +13,11 @@ import {
 } from '@/components/ui/dropdown-menu'
 import moment from 'moment'
 import Link from 'next/link'
+import deleteProfit from '@/lib/deleteProfit'
+
+const onDeleteProfit = async (profitId: string) => {
+  await deleteProfit(profitId)
+}
 
 export const columns: ColumnDef<Profit>[] = [
   {
@@ -29,7 +31,7 @@ export const columns: ColumnDef<Profit>[] = [
     ),
     cell: ({ row }) => (
       <Checkbox
-      className='bg-slate-300'
+        className="bg-slate-300"
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
@@ -96,7 +98,9 @@ export const columns: ColumnDef<Profit>[] = [
               <Link href={`profits/${profit.id}`}>Ver detalhes</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Excluir investimento</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => onDeleteProfit(profit.id)}>
+              Excluir investimento
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )

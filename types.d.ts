@@ -41,6 +41,11 @@ type CreateProfit = {
   value: number
 }
 
+type CreateExpense = {
+  expense: string
+  value: number
+}
+
 type Post = {
   userId: number
   id: number

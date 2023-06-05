@@ -1,9 +1,6 @@
 'use client'
 
 import { ColumnDef } from '@tanstack/react-table'
-
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
 import { MoreHorizontal, ArrowUpDown } from 'lucide-react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
@@ -16,13 +13,13 @@ import {
 } from '@/components/ui/dropdown-menu'
 import moment from 'moment'
 import Link from 'next/link'
-import deleteInvestment from '@/lib/deleteInvestment'
+import deleteExpense from '@/lib/deleteExpense'
 
-const onDeleteInvestment = async (investmentId: string) => {
-  await deleteInvestment(investmentId)
+const onDeleteExpense = async (expenseId: string) => {
+  await deleteExpense(expenseId)
 }
 
-export const columns: ColumnDef<Investment>[] = [
+export const columns: ColumnDef<Expense>[] = [
   {
     id: 'select',
     header: ({ table }) => (
@@ -44,14 +41,14 @@ export const columns: ColumnDef<Investment>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: 'investment',
+    accessorKey: 'expense',
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
-          Investimento
+          Gasto
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -71,7 +68,7 @@ export const columns: ColumnDef<Investment>[] = [
   },
   {
     accessorKey: 'createdAt',
-    header: 'Data de aplicação',
+    header: 'Data de registro',
     cell: ({ row }) => {
       const date = moment(row.getValue('createdAt')).format('DD/MM/YY')
       return <div className="text-left font-medium">{date}</div>
@@ -80,7 +77,7 @@ export const columns: ColumnDef<Investment>[] = [
   {
     id: 'actions',
     cell: ({ row }) => {
-      const investment = row.original
+      const expense = row.original
 
       return (
         <DropdownMenu>
@@ -98,11 +95,11 @@ export const columns: ColumnDef<Investment>[] = [
             </DropdownMenuItem> */}
             <DropdownMenuItem>
               {' '}
-              <Link href={`investments/${investment.id}`}>Ver detalhes </Link>
+              <Link href={`expenses/${expense.id}`}>Ver detalhes</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => onDeleteInvestment(investment.id)}>
-              Excluir investimento
+            <DropdownMenuItem onClick={() => onDeleteExpense(expense.id)}>
+              Deletar gasto
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
