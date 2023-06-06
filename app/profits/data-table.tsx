@@ -84,7 +84,7 @@ export function DataTable<TData, TValue>({
         />
 
         <Button className="ml-auto bg-slate-700 hover:bg-slate-600">
-          <Link href={'investments/create'}>Adicionar ganho</Link>
+          <Link href={'profits/create'}>Adicionar ganho</Link>
         </Button>
 
         {/*   <DropdownMenu>

@@ -60,7 +60,7 @@ export function AddInvestment() {
                 <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="value">Valor</Label>
                   <Input
-                    placeholder="Nome do investimento"
+                    placeholder="Valor do investimento"
                     {...form.getFieldProps('value')}
                   />
                 </div>

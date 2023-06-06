@@ -26,7 +26,7 @@ export function AddProfit() {
   const handleCreateContract = async () => {
     if (form.isValid) {
       await createProfit(form.values)
-      router.push('/investments')
+      router.push('/profits')
     }
   }
 

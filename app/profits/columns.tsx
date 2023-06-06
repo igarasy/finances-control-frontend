@@ -99,7 +99,7 @@ export const columns: ColumnDef<Profit>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => onDeleteProfit(profit.id)}>
-              Excluir investimento
+              Excluir ganho
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
